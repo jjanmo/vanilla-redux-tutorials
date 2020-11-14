@@ -33,6 +33,12 @@ dispatch : 2가지 역할을 한다. 첫번째는 reducer를 호출하여 action
 
 > [관련링크](https://medium.com/@wooder2050/%EB%A6%AC%EB%8D%95%EC%8A%A4-redux-%EB%8A%94-%EC%99%9C-%EC%93%B0%EB%8A%94-%EA%B1%B4%EB%8D%B0-2eaafce30f27)
 
-## Project1
+## Exmaple
+
+`구현 내용`
+
+각각의 색을 갖고 있는 4개의 버튼이 있다. 각 버튼을 누르면 버튼이 갖고 있는 색으로 4개의 버튼의 배경색이 변화한다. 리덕스를 사용안하고 구현하면서 이에 대한 복잡도를 간접경험 해본다. 그 후 리덕스를 이용해서 리팩토링함으로서 리덕스가 필요한 이유에 대해서 느껴보자.
+
+`without-redux VS with-redux`
 
 ## Project2
