@@ -12,11 +12,10 @@ const $limegreenContainer = document.querySelector('.limegreen');
 
 const reducer = (state, action) => {
     if (action.type === 'change_color') {
-        state = action.color;
-        return state;
+        return Object.assign({}, state, { color: action.color });
     }
 };
-const store = createStore(reducer);
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 /*
 store = {
     dispatch: ƒ y(e)
@@ -46,10 +45,11 @@ function handleClickReset() {
 }
 
 function render() {
-    $tomatoContainer.style.backgroundColor = store.getState();
-    $pinkContainer.style.backgroundColor = store.getState();
-    $dodgerblueContainer.style.backgroundColor = store.getState();
-    $limegreenContainer.style.backgroundColor = store.getState();
+    const { color } = store.getState();
+    $tomatoContainer.style.backgroundColor = color;
+    $pinkContainer.style.backgroundColor = color;
+    $dodgerblueContainer.style.backgroundColor = color;
+    $limegreenContainer.style.backgroundColor = color;
 }
 
 store.subscribe(render);

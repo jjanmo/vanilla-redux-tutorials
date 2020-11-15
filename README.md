@@ -51,4 +51,14 @@ dispatch : 2가지 역할을 한다. 첫번째는 reducer를 호출하여 action
 
 반면에 리덕스를 사용하는 경우, 무엇을 업데이트 할건지에 대한 내용만을 action 객체로서 dispatch에 전달한다. 즉 클릭하면 어떤 변화가 오는 것인지에 대한 내용만을 핸들러에 표현한다. action을 전달받은 dispatch는 그 action을 reducer를 호출하여 전달한다. reducer는 전달받은 action에 따라서 새로운 state를 생성하고 그 state에 따라서 store에 subscribe된 render 함수에 의해서 컨테이너는 리랜더링된다. 여기서 보면 각각의 단계가 모두 분리되어있다. 그리고 각자의 구성요소들은 각자의 역할만을 하게 된다.
 
-## Project2
+> 참고 위의 이미지에서 reducer부분의 코드가 명확하지 않은 부분이 있어서 수정하였다. 리덕스는 상태값을 직접 수정하지 못한다. 항상 새로운 상태를 생성하여서 업데이트한다. 또한 상태값은 객체로서 주어지는 것이 맞다. 그런데 위의 코드는 그냥 원시타입으로 주어지기 때문에 작동은 하나 개념적으로 명확하지않다.
+
+```javascript
+if (action.type === 'change_color') {
+    return Object.assign({}, state, { color: action.color });
+}
+```
+
+> 리듀서에서 반환값은 새로운 상태값이 된다.
+
+## Project
