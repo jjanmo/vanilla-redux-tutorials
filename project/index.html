@@ -8,29 +8,12 @@
     <title>Redux Board</title>
   </head>
   <body>
-    <header>
-      <h1>Title</h1>
-    </header>
-    <main>
-      <div class="list-container">
-        <ul>
-          <li class="list-item">
-            <div class="list-title">HTML</div>
-            <button class="list-delete-button">Delete</button>
-          </li>
-          <li>
-            <div class="list-title">CSS</div>
-            <button class="list-delete-button">Delete</button>
-          </li>
-        </ul>
-      </div>
-      <div class="detail-container">
-        <div class="detail">
-          <h2 class="detail-title">Title</h2>
-          <div class="detail-contents">HTML is...</div>
-        </div>
-      </div>
-    </main>
+    <div id="root"></div>
+
+    <script src="./components/List.js"></script>
+    <script src="./components/Detail.js"></script>
+    <script src="./components/Header.js"></script>
+    <script src="./components/Main.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>

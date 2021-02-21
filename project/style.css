@@ -22,7 +22,7 @@ main {
   width: 50%;
   background-color: thistle;
 }
-ul {
+.list {
   width: 100%;
   display: flex;
   flex-direction: column;
