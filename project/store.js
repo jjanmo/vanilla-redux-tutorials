@@ -19,12 +19,14 @@ const reducer = (state, action) => {
   console.log(state, action);
   if (state === undefined) {
     return {
+      mode: "READ",
       list: [...INITIAL_DATA],
     };
   }
   switch (action.type) {
-    case "select": {
+    case "SELECT": {
       return {
+        mode: "READ",
         list: state.list.map((item) => {
           if (action.id === item.id) {
             return {
@@ -40,9 +42,13 @@ const reducer = (state, action) => {
         }),
       };
     }
-    case "add": {
+    case "ADD": {
+      return {
+        mode: "ADD",
+        list: [...state.list],
+      };
     }
-    case "delete": {
+    case "DELETE": {
     }
   }
 };

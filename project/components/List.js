@@ -10,7 +10,7 @@ const List = () => {
         .map(
           (item) => `
         <li class="list-item" id=${item.id}>
-          <input type="checkbox"/>
+          <input type="checkbox" />
           <div class="list-title">${item.title}</div>
         </li>
       `
