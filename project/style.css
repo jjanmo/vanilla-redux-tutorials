@@ -27,12 +27,27 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 1rem 2rem 1rem 5rem;
 }
 li {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  width: 80%;
+}
+li:hover .list-title {
+  background-color: wheat;
+}
+.list-title {
+  padding: 5px;
+}
+li > input[type="checkbox"] {
+  margin: 0 0.5rem;
+  width: 1rem;
+  height: 1rem;
 }
 .detail-container {
   width: 50%;
@@ -44,6 +59,10 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem 2rem;
+}
+.detail-title {
+  margin: 0.5rem 0;
 }
 button {
   all: unset;
