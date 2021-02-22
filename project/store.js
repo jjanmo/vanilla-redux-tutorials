@@ -14,6 +14,7 @@ const INITIAL_DATA = [
     description: "React.memo, useCallback에 대한 설명 및 성능 평가",
   },
 ];
+let ID = INITIAL_DATA.length;
 
 const reducer = (state, action) => {
   console.log(state, action);
@@ -45,7 +46,16 @@ const reducer = (state, action) => {
     case "ADD": {
       return {
         mode: "ADD",
-        list: [...state.list],
+        list: [
+          ...state.list,
+          {
+            id: ID++,
+            checked: false,
+            selected: false,
+            title: action.title,
+            description: action.description,
+          },
+        ],
       };
     }
     case "DELETE": {

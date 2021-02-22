@@ -36,4 +36,5 @@ const List = () => {
     </div>
   `;
   }
+  Buttons();
 };
