@@ -21,12 +21,14 @@ const reducer = (state, action) => {
   console.log(state, action);
   if (state === undefined) {
     return {
+      mode: "Detail",
       list: [...INITIAL_DATA],
     };
   }
   switch (action.type) {
     case "SELECT": {
       return {
+        mode: "Detail",
         list: state.list.map((item) => {
           if (action.id === item.id) {
             return {
@@ -56,33 +58,10 @@ const reducer = (state, action) => {
         ],
       };
     }
-    case "CHECK": {
-      return {
-        list: state.list.map((item) => {
-          if (action.id === item.id) {
-            return {
-              ...item,
-              checked: true,
-            };
-          }
-          return item;
-        }),
-      };
-    }
-    case "UNCHECK": {
-      return {
-        list: state.list.map((item) => {
-          if (action.id === item.id) {
-            return {
-              ...item,
-              checked: false,
-            };
-          }
-          return item;
-        }),
-      };
-    }
     case "DELETE": {
+      return {
+        list: state.list.filter((item) => action.id !== item.id),
+      };
     }
   }
 };

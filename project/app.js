@@ -62,6 +62,10 @@ const App = () => {
         break;
       }
       case "delete-button": {
+        store.dispatch({
+          type: "DELETE",
+          id: parseInt(e.target.parentNode.id),
+        });
       }
     }
   });
