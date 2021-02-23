@@ -13,10 +13,22 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1.5rem 0;
 }
+
+/* layout */
 main {
   display: flex;
   flex-wrap: wrap;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 4rem;
+  width: 100%;
+  background-color: #dff9fb;
+  color: #fff;
 }
 .list-container {
   width: 50%;
@@ -24,6 +36,27 @@ main {
   background-color: #1abc9c;
   color: #fff;
 }
+.wrapper {
+  width: 50%;
+  height: 70vh;
+}
+.detail-container {
+  background-color: #3498db;
+  color: #fff;
+  padding-top: 5rem;
+  height: 100%;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9ca24;
+  color: #fff;
+  height: 100%;
+  position: relative;
+}
+
 .list {
   width: 100%;
   display: flex;
@@ -53,16 +86,7 @@ li > input[type="checkbox"] {
   width: 1rem;
   height: 1rem;
 }
-.wrapper {
-  width: 50%;
-  height: 70vh;
-}
-.detail-container {
-  background-color: #3498db;
-  color: #fff;
-  padding-top: 5rem;
-  height: 100%;
-}
+
 .detail {
   width: 100%;
   display: flex;
@@ -88,12 +112,7 @@ button {
 a {
   text-decoration: none;
 }
-.button-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 4rem;
-}
+
 .add-button {
   background-color: #4834d4;
 }
@@ -106,15 +125,7 @@ a {
 button:active {
   transform: scale(1.09);
 }
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #f9ca24;
-  color: #fff;
-  height: 100%;
-}
+
 form {
   text-align: center;
 }
@@ -144,4 +155,15 @@ label {
 }
 .hidden {
   display: none;
+}
+.close-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.close-button:active {
+  transform: scale(1.4);
 }

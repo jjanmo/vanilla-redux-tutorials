@@ -14,6 +14,7 @@ const INITIAL_DATA = [
     description: "React.memo, useCallback에 대한 설명 및 성능 평가",
   },
 ];
+
 let ID = INITIAL_DATA.length;
 
 const reducer = (state, action) => {
@@ -49,7 +50,7 @@ const reducer = (state, action) => {
         list: [
           ...state.list,
           {
-            id: ID++,
+            id: (ID = ID + 1),
             checked: false,
             selected: false,
             title: action.title,
@@ -64,3 +65,5 @@ const reducer = (state, action) => {
 };
 
 const store = Redux.createStore(reducer);
+store.subscribe(Detail);
+store.subscribe(List);

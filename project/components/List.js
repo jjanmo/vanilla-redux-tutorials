@@ -19,8 +19,10 @@ const List = () => {
       </ul>
     `;
   } else {
-    $main.innerHTML = `
-    <div class="list-container">
+    const $listContainer = document.createElement("div");
+    $listContainer.className = "list-container";
+    $main.append($listContainer);
+    $listContainer.innerHTML = `
       <ul class="list">
         ${list
           .map(
@@ -33,8 +35,6 @@ const List = () => {
           )
           .join("")}
       </ul>
-    </div>
   `;
   }
-  Buttons();
 };

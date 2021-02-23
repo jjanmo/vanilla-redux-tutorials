@@ -2,6 +2,7 @@ const Form = () => {
   const $wrapper = document.querySelector(".wrapper");
   $wrapper.innerHTML = `
       <div class="form-container hidden">
+        <div class="close-button">❌</div>
         <h2>Add your POST 📝</h2>
         <form>
           <div class="row">

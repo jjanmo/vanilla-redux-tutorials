@@ -1,17 +1,13 @@
 const Buttons = () => {
-  const $listContainer = document.querySelector(".list-container");
-  let $buttonContainer = document.querySelector(".button-container");
+  const $main = document.querySelector("#main");
+  const $buttonContainer = document.createElement("div");
+  $buttonContainer.className = "button-container";
+  ["ADD", "DELETE"].forEach((text) => {
+    const $button = document.createElement("button");
+    $button.textContent = text;
+    $button.className = `${text.toLowerCase()}-button`;
+    $buttonContainer.append($button);
+  });
 
-  if (!$buttonContainer) {
-    $buttonContainer = document.createElement("div");
-    $buttonContainer.className = "button-container";
-    ["ADD", "DELETE"].forEach((text) => {
-      const $button = document.createElement("button");
-      $button.textContent = text;
-      $button.className = `${text.toLowerCase()}-button`;
-      $buttonContainer.append($button);
-    });
-
-    $listContainer.append($buttonContainer);
-  }
+  $main.append($buttonContainer);
 };
