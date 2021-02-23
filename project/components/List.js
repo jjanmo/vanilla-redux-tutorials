@@ -1,7 +1,12 @@
 const List = () => {
   const { list } = store.getState();
   const $main = document.querySelector("#main");
-  const $listContainer = document.querySelector(".list-container");
+
+  const $button = document.createElement("button");
+  $button.className = "add-button";
+  $button.textContent = "+";
+
+  let $listContainer = document.querySelector(".list-container");
 
   if ($listContainer) {
     $listContainer.innerHTML = `
@@ -10,8 +15,9 @@ const List = () => {
         .map(
           (item) => `
         <li class="list-item" id=${item.id}>
-          <input type="checkbox" />
           <div class="list-title">${item.title}</div>
+          <button class="update-button">Update</button>
+          <button class="delete-button">Delete</button>
         </li>
       `
         )
@@ -19,7 +25,7 @@ const List = () => {
       </ul>
     `;
   } else {
-    const $listContainer = document.createElement("div");
+    $listContainer = document.createElement("div");
     $listContainer.className = "list-container";
     $main.append($listContainer);
     $listContainer.innerHTML = `
@@ -28,8 +34,9 @@ const List = () => {
           .map(
             (item) => `
           <li class="list-item" id=${item.id}>
-            <input type="checkbox"/>
             <div class="list-title">${item.title}</div>
+            <button class="update-button">Update</button>
+            <button class="delete-button">Delete</button>
           </li>
         `
           )
@@ -37,4 +44,6 @@ const List = () => {
       </ul>
   `;
   }
+
+  $listContainer.prepend($button);
 };

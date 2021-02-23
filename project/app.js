@@ -1,6 +1,5 @@
 const App = () => {
   const $main = document.querySelector("#main");
-  Buttons();
   List();
 
   const $wrapper = document.createElement("div");
@@ -34,7 +33,7 @@ const App = () => {
   };
 
   $main.addEventListener("click", (e) => {
-    // console.log(e.target.className);
+    console.log(e.target.className);
     switch (e.target.className) {
       case "list-title": {
         const $formContainer = document.querySelector(".form-container");
@@ -60,6 +59,9 @@ const App = () => {
       }
       case "close-button": {
         closeForm();
+        break;
+      }
+      case "delete-button": {
       }
     }
   });
