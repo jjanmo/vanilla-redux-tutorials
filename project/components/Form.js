@@ -8,6 +8,7 @@ const Form = () => {
           <div class="row">
             <label for="title">TITLE</label>
             <input type="text" name="title" id="title"/>
+            <input type=hidden name="id" id="id"/>
           </div>
           <div class="row">
             <label for="description">DESCRIPTION</label>

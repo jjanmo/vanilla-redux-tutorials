@@ -18,7 +18,6 @@ const INITIAL_DATA = [
 let ID = INITIAL_DATA.length;
 
 const reducer = (state, action) => {
-  console.log(state, action);
   if (state === undefined) {
     return {
       mode: "Detail",
@@ -35,12 +34,11 @@ const reducer = (state, action) => {
               ...item,
               selected: true,
             };
-          } else {
-            return {
-              ...item,
-              selected: false,
-            };
           }
+          return {
+            ...item,
+            selected: false,
+          };
         }),
       };
     }
@@ -61,6 +59,20 @@ const reducer = (state, action) => {
     case "DELETE": {
       return {
         list: state.list.filter((item) => action.id !== item.id),
+      };
+    }
+    case "UPDATE": {
+      return {
+        list: state.list.map((item) => {
+          if (item.id === action.id) {
+            return {
+              ...item,
+              title: action.title,
+              description: action.description,
+            };
+          }
+          return item;
+        }),
       };
     }
   }
