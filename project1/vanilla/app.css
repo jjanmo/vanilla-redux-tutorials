@@ -1,0 +1,40 @@
+.container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container div {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    margin: 1rem;
+}
+.container div:first-child {
+    background-color: tomato;
+}
+.container div:nth-child(2) {
+    background-color: pink;
+}
+.container div:nth-child(3) {
+    background-color: dodgerblue;
+}
+.container div:last-child {
+    background-color: limegreen;
+}
+
+button {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.reset {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
