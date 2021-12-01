@@ -1,83 +1,59 @@
-const INITIAL_DATA = [
-  {
-    id: 1,
-    checked: false,
-    selected: true,
-    title: "Redux 어떻게 써야 잘 썼다고 소문이 날까?",
-    description: "리덕스를 잘 사용하는 방법에 대해서 설명한다.",
-  },
-  {
-    id: 2,
-    checked: false,
-    selected: false,
-    title: "React.memo, useCallback 사용으로 렌더링 최적화 하기(feat.React-Native,Redux)",
-    description: "React.memo, useCallback에 대한 설명 및 성능 평가",
-  },
-];
+const initialState = {
+  todos: [
+    {
+      id: 1,
+      checked: false,
+      todo: '자바스크립트 공부하기',
+      date: new Date('2021-12-1'),
+    },
+    {
+      id: 2,
+      checked: false,
+      todo: '요가하기',
+      date: new Date('2021-11-30'),
+    },
+  ],
+};
 
-let ID = INITIAL_DATA.length;
+const ADD_TODO = 'todo/ADD_TODO';
+const DELETE_TODO = 'todo/DELETE_TODO';
 
-const reducer = (state, action) => {
-  if (state === undefined) {
-    return {
-      mode: "Detail",
-      list: [...INITIAL_DATA],
-    };
-  }
+export const addTodo = (todo) => ({
+  type: ADD_TODO,
+  payload: todo,
+});
+
+const deleteTodo = (id) => ({
+  type: DELETE_TODO,
+  payload: id,
+});
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SELECT": {
+    case addTodo: {
       return {
-        mode: "Detail",
-        list: state.list.map((item) => {
-          if (action.id === item.id) {
-            return {
-              ...item,
-              selected: true,
-            };
-          }
-          return {
-            ...item,
-            selected: false,
-          };
-        }),
-      };
-    }
-    case "ADD": {
-      return {
-        list: [
-          ...state.list,
+        todos: [
+          ...state.todos,
           {
-            id: (ID = ID + 1),
+            id: Date.now(),
             checked: false,
-            selected: false,
-            title: action.title,
-            description: action.description,
+            todo: action.payload,
+            date: new Date(),
           },
         ],
       };
     }
-    case "DELETE": {
+    case deleteTodo: {
       return {
-        list: state.list.filter((item) => action.id !== item.id),
+        todos: todos.filter((todo) => todo.id !== action.payload),
       };
     }
-    case "UPDATE": {
-      return {
-        list: state.list.map((item) => {
-          if (item.id === action.id) {
-            return {
-              ...item,
-              title: action.title,
-              description: action.description,
-            };
-          }
-          return item;
-        }),
-      };
+    default: {
+      return state;
     }
   }
 };
 
 const store = Redux.createStore(reducer);
-store.subscribe(Detail);
-store.subscribe(List);
+
+export default store;
