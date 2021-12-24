@@ -1,49 +1,34 @@
-const List = () => {
-  const { list } = store.getState();
-  const $main = document.querySelector("#main");
+import store from '../store.js';
 
-  const $button = document.createElement("button");
-  $button.className = "add-button";
-  $button.textContent = "+";
+const $listContainer = document.querySelector('ul');
 
-  let $listContainer = document.querySelector(".list-container");
+function makeTodo() {
+  const { todos } = store.getState();
 
-  if ($listContainer) {
-    $listContainer.innerHTML = `
-      <ul class="list">
-      ${list
-        .map(
-          (item) => `
-        <li class="list-item" id=${item.id}>
-          <div class="list-title">${item.title}</div>
-          <button class="update-button">Update</button>
-          <button class="delete-button">Delete</button>
-        </li>
-      `
-        )
-        .join("")}
-      </ul>
+  return todos
+    .map((todo) => {
+      return `
+      <li class="item">
+        <div class="item-body">
+          <input type="checkbox" />
+          <div class="content">${todo.content}</div>
+        </div>
+      <button class="delete-button">
+        <img src="/project2/assets/icon_delete.png" type="png/image" alt="delete" />
+      </button>
+      </li>
     `;
-  } else {
-    $listContainer = document.createElement("div");
-    $listContainer.className = "list-container";
-    $main.append($listContainer);
-    $listContainer.innerHTML = `
-      <ul class="list">
-        ${list
-          .map(
-            (item) => `
-          <li class="list-item" id=${item.id}>
-            <div class="list-title">${item.title}</div>
-            <button class="update-button">Update</button>
-            <button class="delete-button">Delete</button>
-          </li>
-        `
-          )
-          .join("")}
-      </ul>
-  `;
-  }
+    })
+    .join('');
+}
 
-  $listContainer.prepend($button);
+function render() {
+  const listString = makeTodo();
+  $listContainer.innerHTML = listString;
+}
+
+const List = {
+  render,
 };
+
+export default List;

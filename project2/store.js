@@ -3,34 +3,34 @@ const initialState = {
     {
       id: 1,
       checked: false,
-      todo: '자바스크립트 공부하기',
+      content: '자바스크립트 공부하기',
       date: new Date('2021-12-1'),
     },
     {
       id: 2,
       checked: false,
-      todo: '요가하기',
+      content: '요가하기',
       date: new Date('2021-11-30'),
     },
   ],
 };
 
-const ADD_TODO = 'todo/ADD_TODO';
-const DELETE_TODO = 'todo/DELETE_TODO';
+const ADD_TODO = 'ADD_TODO';
+const DELETE_TODO = 'DELETE_TODO';
 
 export const addTodo = (todo) => ({
   type: ADD_TODO,
-  payload: todo,
+  payload: { todo },
 });
 
 const deleteTodo = (id) => ({
   type: DELETE_TODO,
-  payload: id,
+  payload: { id },
 });
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case addTodo: {
+    case ADD_TODO: {
       return {
         todos: [
           ...state.todos,
@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
         ],
       };
     }
-    case deleteTodo: {
+    case DELETE_TODO: {
       return {
         todos: todos.filter((todo) => todo.id !== action.payload),
       };

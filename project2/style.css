@@ -58,6 +58,8 @@ body {
   padding-top: 3rem;
   position: relative;
 }
+
+/* list */
 .list-container {
   width: 100%;
 }
@@ -66,7 +68,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: 18px;
+  padding: 5px 15px;
+  border-radius: 10px;
 }
 .item div {
   display: flex;
@@ -81,22 +85,26 @@ body {
 }
 .item .delete-button {
   all: unset;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-.item:hover .delete-button {
-  background-color: #e8ebef;
-}
 .item .delete-button img {
   width: 55%;
   height: 55%;
   object-fit: contain;
 }
+.item:hover {
+  background-color: #dff9fb;
+}
+.item:hover .delete-button {
+  background-color: #e8ebef;
+}
+
 .add-button {
   all: unset;
   width: 50px;
