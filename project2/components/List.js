@@ -45,11 +45,11 @@ function render() {
   $listContainer.innerHTML = listString;
 }
 
-const List = {
-  render,
-  listenEvent,
-};
-
 store.subscribe(render);
+
+const List = {
+  listenEvent,
+  render,
+};
 
 export default List;

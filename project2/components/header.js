@@ -25,10 +25,10 @@ function render() {
   $status.textContent = status;
 }
 
+store.subscribe(render);
+
 const Header = {
   render,
 };
-
-store.subscribe(render);
 
 export default Header;
