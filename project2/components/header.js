@@ -1,5 +1,5 @@
 import store from '../store.js';
-import { getDateStr, getDay } from '../utils/date.js';
+import { getDateStr, getDay } from '../utils/functions.js';
 
 const $header = document.querySelector('.header');
 const $date = $header.querySelector('.date');
@@ -9,7 +9,9 @@ const $status = $header.querySelector('.status');
 function getStatus() {
   const { todos } = store.getState();
 
-  return `해야 할 일 ${todos.length}개`;
+  const todoCount = todos.filter((todo) => !todo.isDone).length;
+
+  return `해야 할 일 ${todoCount}개`;
 }
 
 function render() {
@@ -26,5 +28,7 @@ function render() {
 const Header = {
   render,
 };
+
+store.subscribe(render);
 
 export default Header;

@@ -1,9 +1,9 @@
 export function getDateStr(now) {
   const year = now.getFullYear();
-  const month = now.getMonth();
+  const month = now.getMonth() + 1;
   const date = now.getDate();
 
-  return `${year}년 ${month}월 ${date}일`;
+  return `${year}년 ${month > 9 ? month : ` ${month}`}월 ${date > 9 ? date : ` ${date}`}일`;
 }
 
 export function getDay(now) {
@@ -30,5 +30,13 @@ export function getDay(now) {
     case 6: {
       return '토요일';
     }
+  }
+}
+
+export function findItem(cur) {
+  if (cur.className === 'item') return cur;
+  else {
+    cur = cur.parentNode;
+    return findItem(cur);
   }
 }
